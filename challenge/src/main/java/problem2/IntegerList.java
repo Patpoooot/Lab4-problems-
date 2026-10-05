@@ -50,6 +50,7 @@ public class IntegerList
     public void addElement(int newVal) {
         if (count == size) increaseSize();
         list[count] = newVal;
+        count++;
     }
 
     //removing the first occurrence of the given value
