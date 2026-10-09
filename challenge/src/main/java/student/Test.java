@@ -1,5 +1,8 @@
 package student;
 
+import instructor.Instructor;
+import instructor.Subject;
+
 public class Test {
     public static void main(String[] args) {
 
@@ -38,17 +41,6 @@ public class Test {
             System.out.println("Student not found.");
         }
 
-
-        // Test a CNE that doesn't exist
-        System.out.println("\nSearch for student with CNE ABC000:");
-        Student notFound = m1.findStudentByCNE("ABC000");
-
-        if (notFound != null) {
-            System.out.println(notFound);
-        } else {
-            System.out.println("Student not found.");
-        }
-
         // Test getStudentCount()
         System.out.println("\nNumber of students:");
 
@@ -82,5 +74,43 @@ public class Test {
         System.out.println("Number of CS students after removal: " + m1.getStudentCount());
 
 
+        // Test Instructor
+        System.out.println("\nTesting Instructor:");
+
+        Instructor instructor = new Instructor(
+                1,
+                "Ajerouassi",
+                "Adam",
+                "0661456555",
+                "adam@example.com",
+                "EMP 123"
+        );
+
+        System.out.println("Summary: " + instructor.summaryLine());
+        System.out.println("Clean employee number: "
+                + instructor.cleanEmployeeNumber());
+        System.out.println("Display name: " + instructor.displayName());
+        System.out.println("Card:\n" + instructor.toCard());
+
+
+        // Test Subject
+        System.out.println("\nTesting Subject:");
+
+        Subject subject = new Subject(
+                "Ajerouassi",
+                "Adam",
+                "0661456555",
+                "adam@example.com",
+                "EMP 123",
+                101,
+                "cs 101",
+                "introduction to programming"
+        );
+
+        System.out.println("Normalized code: " + subject.normalizedCode());
+        System.out.println("Proper title: " + subject.properTitle());
+        System.out.println("Is introductory course: "
+                + subject.isIntroCourse());
+        System.out.println("Syllabus: " + subject.syllabusLine());
     }
 }   
